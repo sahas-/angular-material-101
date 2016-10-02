@@ -1,0 +1,26 @@
+<md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4" layout-padding>
+
+    <md-toolbar layout-align="center center">
+        Locations
+    </md-toolbar>
+    <div layout-padding>
+        <md-autocomplete md-search-text="vm.searchText" md-items="item in vm.locations | filter:vm.searchText" md-items-text="item.name"
+            md-min-length="2" placeholder="Filter">
+            <md-item-template>
+                <span md-highlight-text="vm.searchText" md-highlight-flags="^i">{{item.name}}</span>
+            </md-item-template>
+            <md-not-found> No matching found
+            </md-not-found>
+        </md-autocomplete>
+    </div>
+    <md-content>
+        <md-list>
+            <md-listItem ng-repeat="location in vm.locations| filter:vm.searchText | orderBy:'name'">
+                <md-button ng-click="vm.selectLocation(location)" ng-class="{'selected':location===vm.selected}">
+                    {{location.name}}
+                </md-button>
+            </md-listItem>
+        </md-list>
+    </md-content>
+
+</md-sidenav>

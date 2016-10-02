@@ -1,0 +1,36 @@
+
+<md-content layout="column" layout-padding layout-xs="column">
+    <div>
+        <md-toolbar layout-align="center center" layout-xs="column">
+            States
+        </md-toolbar>
+    </div>
+    <div layout-xs="column">
+        <md-autocomplete md-search-text="vm.searchText" md-items="item in vm.locations | filter:vm.searchText" md-items-text="item.name"
+            md-min-length="2" placeholder="Filter">
+            <md-item-template>
+                <span md-highlight-text="vm.searchText" md-highlight-flags="^i">{{item.name}}</span>
+            </md-item-template>
+            <md-not-found> No matching found
+            </md-not-found>
+        </md-autocomplete>
+    </div>
+    <div layout="row" layout-xs="column">
+        <md-card ng-repeat="state in vm.selected.states | orderBy:'city'">
+            <h3>{{state.city}}</h3>
+            <md-card-content>
+                <md-icon md-svg-src="location" aria-label="label" class="24"></md-icon>
+                <p>{{state.industry}}</p>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button aria-label="like" class="md-mini|md-fab" ng-click="vm.addToLike(state)">
+                    <md-icon md-svg-src="like"></md-icon>
+                </md-button>
+                <md-button aria-label="expand" class="md-mini|md-fab">
+                    <md-icon md-svg-src="expand"></md-icon>
+                </md-button>
+            </md-card-actions>
+        </md-card>
+
+    </div>
+</md-content>

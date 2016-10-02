@@ -1,0 +1,33 @@
+html,body{
+    font-family: 'Roboto',sans-serif;
+    font-size: 14px;
+    height: 100%;
+    margin:0;
+    padding: 0;
+}
+md-toolbar h1{
+    font-size: 1.250em;
+    font-weight: 400;
+    margin: auto;
+}
+md-sidenav{
+    padding:10;
+    margin: 10;
+}
+md-sidenav md-list{
+    padding: 0px 0px 8px 0px;
+}
+md-list .md-button{
+    color: inherit;
+    font-weight: 200;
+    text-align: left;
+    width: auto;
+}
+md-list .md-button.selected{
+    color:blue;
+}
+#content h2{
+    padding-left: 40px;
+    padding-right:40px;
+    padding-top: 5px;
+}
